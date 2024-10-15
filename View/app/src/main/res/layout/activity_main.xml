@@ -16,9 +16,42 @@
         android:layout_height="wrap_content"
         android:src="@drawable/lake_1" />
     <TextView
+        android:id="@+id/targetView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textStyle="bold"
         android:text="Lake Louise, AB, 캐나다"/>
 
+    <Button
+        android:id="@+id/visibleBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="visible"/>
+    <Button
+        android:id="@+id/invisibleBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="invisible"/>
+
+    <CheckBox
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="check1"/>
+    <RadioGroup
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+        <RadioButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="radio1"/>
+        <RadioButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="radio2"/>
+    </RadioGroup>
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:inputType="number"/>
 </LinearLayout>

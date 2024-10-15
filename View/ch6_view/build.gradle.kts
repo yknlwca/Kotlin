@@ -4,11 +4,11 @@ plugins {
 }
 
 android {
-    namespace = "com.example.view"
+    namespace = "com.example.ch6_view"
     compileSdk = 34
 
     defaultConfig {
-        applicationId = "com.example.view"
+        applicationId = "com.example.ch6_view"
         minSdk = 24
         targetSdk = 34
         versionCode = 1
@@ -32,9 +32,6 @@ android {
     }
     kotlinOptions {
         jvmTarget = "1.8"
-    }
-    viewBinding{
-        enable = true
     }
 }
 
