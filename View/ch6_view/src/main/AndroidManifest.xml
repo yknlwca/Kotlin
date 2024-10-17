@@ -9,7 +9,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.View">
         <activity
-            android:name=".MainActivity"
+            android:name=".com.example.ch10_notification.MainActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

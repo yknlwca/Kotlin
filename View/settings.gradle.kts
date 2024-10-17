@@ -23,3 +23,8 @@ rootProject.name = "View"
 include(":app")
 include(":ch6_view")
 include(":ch7_layout")
+include(":ch8_event")
+include(":ch9_resource")
+include(":ch10_notification")
+include(":ch11_jetpack")
+include(":practice")
