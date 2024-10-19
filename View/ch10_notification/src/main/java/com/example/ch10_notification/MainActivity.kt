@@ -97,6 +97,7 @@ class MainActivity : AppCompatActivity() {
             setContentTitle("최광림")
             setContentText("하이요")
             setLargeIcon(BitmapFactory.decodeResource(resources, R.drawable.big))
+            setColor(1)
         }
 
         val KEY_TEXT_REPLY = "key_text_reply"
