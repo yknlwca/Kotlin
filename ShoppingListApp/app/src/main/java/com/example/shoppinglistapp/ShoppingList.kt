@@ -67,8 +67,24 @@ fun ShoppingListApp() {
                 .fillMaxSize()
                 .padding(16.dp)
         ) {
-            items(sItems) {
-                ShoppingListItem(it, {}, {})
+            items(sItems) { item ->
+                if (item.isEditing) {
+                    ShoppingItemEditor(item = item, onEditComplete = { editedName, editedQuantity ->
+                        sItems = sItems.map { it.copy(isEditing = false) }
+                        val editedItem = sItems.find { it.id == item.id }
+                        editedItem?.let {
+                            it.name = editedName
+                            it.quantity = editedQuantity
+                        }
+                    })
+                } else {
+                    ShoppingListItem(item = item, onEditClick = {
+                        // finding out which item we are editing and changing is "isEditing boolean" to true
+                        sItems = sItems.map { it.copy(isEditing = it.id == item.id) }
+                    }, onDeleteClick = {
+                        sItems = sItems - item
+                    })
+                }
             }
         }
     }
@@ -92,6 +108,7 @@ fun ShoppingListApp() {
                             sItems = sItems + newItem
                             showDialog = false
                             itemName = ""
+                            itemQuantity = ""
                         }
                     }) {
                         Text("Add")
@@ -140,7 +157,8 @@ fun ShoppingListItem(
             .border(
                 border = BorderStroke(2.dp, Color.Magenta),
                 shape = RoundedCornerShape(20)
-            )
+            ),
+        horizontalArrangement = Arrangement.SpaceBetween
     ) {
         Text(text = item.name, modifier = Modifier.padding(8.dp))
         Text(text = "Quantity : ${item.quantity}", modifier = Modifier.padding(8.dp))
@@ -173,23 +191,27 @@ fun ShoppingItemEditor(item: ShoppingItem, onEditComplete: (String, Int) -> Unit
                 value = editedName,
                 onValueChange = { editedName = it },
                 singleLine = true,
-                modifier = Modifier.wrapContentSize().padding(8.dp)
+                modifier = Modifier
+                    .wrapContentSize()
+                    .padding(8.dp)
             )
 
             BasicTextField(
                 value = editedQuantity,
-                onValueChange = {editedQuantity = it},
+                onValueChange = { editedQuantity = it },
                 singleLine = true,
-                modifier = Modifier.wrapContentSize().padding(8.dp)
+                modifier = Modifier
+                    .wrapContentSize()
+                    .padding(8.dp)
             )
         }
 
         Button(
             onClick = {
-                isEditing = false,
+                isEditing = false
                 onEditComplete(editedName, editedQuantity.toIntOrNull() ?: 1)
             }
-        ){
+        ) {
             Text("Save")
         }
     }
