@@ -4,11 +4,11 @@ plugins {
 }
 
 android {
-    namespace = "com.example.locationapp"
+    namespace = "com.example.mywishlistapp"
     compileSdk = 34
 
     defaultConfig {
-        applicationId = "com.example.locationapp"
+        applicationId = "com.example.mywishlistapp"
         minSdk = 24
         targetSdk = 34
         versionCode = 1
@@ -50,9 +50,7 @@ android {
 }
 
 dependencies {
-    implementation("com.google.android.gms:play-services-maps:19.0.0")
-    implementation("com.google.android.gms:play-services-location:21.3.0")
-    implementation("androidx.lifecycle:lifecycle-viewmodel-compose:2.8.6")
+
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.lifecycle.runtime.ktx)
     implementation(libs.androidx.activity.compose)
