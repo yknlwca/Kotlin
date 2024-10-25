@@ -1,15 +1,14 @@
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.android)
-    id("kotlin-kapt")
 }
 
 android {
-    namespace = "com.example.mywishlistapp"
+    namespace = "com.example.workalone_android"
     compileSdk = 34
 
     defaultConfig {
-        applicationId = "com.example.mywishlistapp"
+        applicationId = "com.example.workalone_android"
         minSdk = 24
         targetSdk = 34
         versionCode = 1
@@ -51,20 +50,6 @@ android {
 }
 
 dependencies {
-    val nav_version = "2.7.5"
-    val compose_version = "1.6.0-alpha08"
-    val room = "2.6.0"
-
-    // Room
-    implementation("androidx.room:room-runtime:$room")
-    implementation("androidx.room:room-ktx:$room")
-    kapt("androidx.room:room-compiler:$room")
-
-    implementation("androidx.navigation:navigation-compose:$nav_version")
-    implementation("androidx.compose.ui:ui:$compose_version")
-    implementation("androidx.compose.material:material:$compose_version")
-    implementation("androidx.compose.ui:ui-tooling-preview:$compose_version")
-
 
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.lifecycle.runtime.ktx)
